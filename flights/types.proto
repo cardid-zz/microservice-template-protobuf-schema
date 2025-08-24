@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package flights;
+
+option java_multiple_files = true;
+option java_package = "info.test.proto.services.flights";
+option go_package = "git.test.info/test/schema/gen/go/flights;flights";
+
+// Flight - данные об экземпляре сценария
+message Flight {
+  // id - идентификатор
+  string id = 1;
+}
