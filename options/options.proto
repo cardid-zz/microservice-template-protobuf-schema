@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package options;
+
+option go_package = "git.test.info/test/schema/gen/go/options;options";
+option java_multiple_files = true;
+option java_package = "info.test.proto.options";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+    // required - поле обязательно для заполнения и не может быть заполнено значением по умолчанию.
+    // Например, строковое поле не должно быть пустой строкой, числовое - не должно иметь значение 0,
+    // структура не должна быть пустой.
+    EmptyOption required = 789904;
+    // restrict_string - поле, содержащее строковое значение должно удовлетворять ограничениям.
+    // Не имеет смысла при применении не к строковым полям, или полям типа common.StringWrapper.
+    RestrictStringOption restrict_string = 696543;
+    // restrict_int - поле, содержащее целочисленный тип должно удовлетворять ограничениям интервала.
+    Interval restrict_int = 836521;
+    // default - поле примитивного типа будет иметь заданное значение, если не определено при передаче с клиента.
+    // Если тип значения по умолчанию и поля не совпадает, будет возвращена ошибка.
+    DefaultOption default = 1156785;
+    // go_exclude - если сообщение-носитель поля используется для генерации go-структур,
+    // данное поле будет проигнорировано при генерации.
+    EmptyOption go_exclude = 5423886;
+    // secret_string - поле является секретной строкой и должно быть скрыто при логировании.
+    EmptyOption secret_string = 9347646;
+}
+
+extend google.protobuf.OneofOptions {
+    // oneof_required - поле типа oneof обязательно должно содержать один из доступных вариантов.
+    EmptyOption oneof_required = 789904;
+}
+
+extend google.protobuf.MessageOptions {
+    // go_generate - указание, что данное сообщение будет использовано для генерации go-структур.
+    GoGeneratedKind go_generate = 6539311;
+}
+
+// EmptyOption - опция, не содержащая дополнительной метаинформации.
+message EmptyOption {}
+
+// RestrictStringOption - опция, накладывающая ограничения на строку.
+message RestrictStringOption {
+    // payload - варианты ограничений.
+    oneof payload {
+        // len - ограничение длинны строки.
+        Interval len = 1;
+        // regex - ограничение по регулярному выражению.
+        string regex = 2;
+        // uuid - строка должна соответствовать формату uuid (RFC 4122).
+        EmptyOption uuid = 3;
+        // email - строка должна соответствовать формату email (RFC 5322).
+        EmptyOption email = 4;
+        // iso_date - строка должна соответствовать формату даты и времени ISO (RFC 3339).
+        EmptyOption iso_date = 5;
+    }
+}
+
+// Default - опция, позволяющая назначить значение по умолчанию для поля примитивного типа.
+message DefaultOption {
+    oneof payload {
+        // int - целое значение.
+        int64 int = 1;
+        // float - значение с плавающей точкой.
+        double float = 2;
+        // bytes - массив байтов.
+        bytes bytes = 3;
+        // bool - булево значение.
+        bool bool = 4;
+    }
+}
+
+// Interval - интервал значений от min до max.
+message Interval {
+    // min - минимальное значение включительно.
+    int64 min = 1;
+    // max - максимально значение включительно
+    int64 max = 2;
+}
+
+// GoGeneratedKind - категория генерируемого сообщения.
+enum GoGeneratedKind {
+    // KIND_UNSPECIFIED - не использовать.
+    KIND_UNSPECIFIED = 0;
+    // ENTITY - сообщение является сущностью.
+    ENTITY = 1;
+    // DTO - сообщение является транспортным объектом.
+    DTO = 2;
+}
