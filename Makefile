@@ -1,6 +1,9 @@
 SCHEMA_PATH=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 GEN_DIR=gen
 
+$(GEN_DIR):
+	mkdir -p $(SCHEMA_PATH)/$(GEN_DIR)
+
 deps.lock:
 	go mod tidy
 	go run deps/run.go
