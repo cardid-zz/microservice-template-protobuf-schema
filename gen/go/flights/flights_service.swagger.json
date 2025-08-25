@@ -50,6 +50,7 @@
         "details": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/commonDetail"
           },
           "title": "details - дополнительные детали ошибки"
@@ -117,6 +118,7 @@
         "details": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
         }

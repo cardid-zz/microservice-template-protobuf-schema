@@ -17,10 +17,6 @@ plugins:
     out: gen/go
     opt:
       - logtostderr=true
-  - name: check-scenarios
-    out: gen/go
-    opt:
-      - import_path=.
   - name: java
     out: gen/java
   - name: grpc-java
