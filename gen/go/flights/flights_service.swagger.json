@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "flights/flights_service.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "FlightsService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "commonApp": {
+      "type": "string",
+      "enum": [
+        "APP_UNSPECIFIED"
+      ],
+      "default": "APP_UNSPECIFIED",
+      "description": "App - список приложений(сервисов) системы.\n\n - APP_UNSPECIFIED: APP_UNSPECIFIED зарезервированное значение."
+    },
+    "commonDetail": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "code - код детализации"
+        },
+        "message": {
+          "type": "string",
+          "title": "message - сообщение"
+        }
+      },
+      "title": "Detail - опциональная детализация ошибки"
+    },
+    "commonError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "title": "message - сообщение ошибки"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonDetail"
+          },
+          "title": "details - дополнительные детали ошибки"
+        }
+      },
+      "title": "Error представление ошибки бизнес-логики"
+    },
+    "commonStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "code - код статуса"
+        },
+        "appName": {
+          "$ref": "#/definitions/commonApp",
+          "title": "app_name - имя приложения, идентифицирует сервис"
+        },
+        "correlationId": {
+          "type": "string",
+          "title": "correlation_id - сквозной идентификатор запроса"
+        },
+        "error": {
+          "$ref": "#/definitions/commonError",
+          "title": "error - возможная ошибка"
+        }
+      },
+      "title": "Status - статус операции"
+    },
+    "flightsFlight": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "id - идентификатор"
+        }
+      },
+      "title": "Flight - данные об экземпляре сценария"
+    },
+    "flightsGetFlightsResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonStatus",
+          "title": "Статус ответа"
+        },
+        "flight": {
+          "$ref": "#/definitions/flightsFlight",
+          "title": "flight - Полет"
+        }
+      },
+      "title": "Ответ на GetFlightsRequest"
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    }
+  }
+}

@@ -42,7 +42,6 @@ bin/
 .DS_Store
 
 .idea
-gen
 go.sum
 deps.lock
 protoc-gen-grpc-kotlin-*

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "git.test.info/test/schema/gen/go/common;common";
+option go_package = "github.com/cardid-zz/microservice-template-protobuf-schema/gen/go/common;common";
 option java_multiple_files = true;
 option java_package = "info.test.proto.common";
 
