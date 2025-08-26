@@ -14,8 +14,8 @@ message Status {
     int32 code = 1;
     // app_name - имя приложения, идентифицирует сервис
     App app_name = 2;
-    // correlation_id - сквозной идентификатор запроса
-    string correlation_id = 3;
+    // tracing_id - сквозной идентификатор запроса
+    string tracing_id = 3;
     // error - возможная ошибка
     Error error = 4;
 }
