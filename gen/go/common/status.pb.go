@@ -28,8 +28,8 @@ type Status struct {
 	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	// app_name - имя приложения, идентифицирует сервис
 	AppName App `protobuf:"varint,2,opt,name=app_name,json=appName,proto3,enum=common.App" json:"app_name,omitempty"`
-	// correlation_id - сквозной идентификатор запроса
-	CorrelationId string `protobuf:"bytes,3,opt,name=correlation_id,json=correlationId,proto3" json:"correlation_id,omitempty"`
+	// tracing_id - сквозной идентификатор запроса
+	TracingId string `protobuf:"bytes,3,opt,name=tracing_id,json=tracingId,proto3" json:"tracing_id,omitempty"`
 	// error - возможная ошибка
 	Error         *Error `protobuf:"bytes,4,opt,name=error,proto3" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -80,9 +80,9 @@ func (x *Status) GetAppName() App {
 	return App_APP_UNSPECIFIED
 }
 
-func (x *Status) GetCorrelationId() string {
+func (x *Status) GetTracingId() string {
 	if x != nil {
-		return x.CorrelationId
+		return x.TracingId
 	}
 	return ""
 }
@@ -208,11 +208,12 @@ var File_common_status_proto protoreflect.FileDescriptor
 
 const file_common_status_proto_rawDesc = "" +
 	"\n" +
-	"\x13common/status.proto\x12\x06common\x1a\x11common/apps.proto\"\x90\x01\n" +
+	"\x13common/status.proto\x12\x06common\x1a\x11common/apps.proto\"\x88\x01\n" +
 	"\x06Status\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12&\n" +
-	"\bapp_name\x18\x02 \x01(\x0e2\v.common.AppR\aappName\x12%\n" +
-	"\x0ecorrelation_id\x18\x03 \x01(\tR\rcorrelationId\x12#\n" +
+	"\bapp_name\x18\x02 \x01(\x0e2\v.common.AppR\aappName\x12\x1d\n" +
+	"\n" +
+	"tracing_id\x18\x03 \x01(\tR\ttracingId\x12#\n" +
 	"\x05error\x18\x04 \x01(\v2\r.common.ErrorR\x05error\"K\n" +
 	"\x05Error\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\x12(\n" +

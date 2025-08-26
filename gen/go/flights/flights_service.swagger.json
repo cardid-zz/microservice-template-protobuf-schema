@@ -70,9 +70,9 @@
           "$ref": "#/definitions/commonApp",
           "title": "app_name - имя приложения, идентифицирует сервис"
         },
-        "correlationId": {
+        "tracingId": {
           "type": "string",
-          "title": "correlation_id - сквозной идентификатор запроса"
+          "title": "tracing_id - сквозной идентификатор запроса"
         },
         "error": {
           "$ref": "#/definitions/commonError",

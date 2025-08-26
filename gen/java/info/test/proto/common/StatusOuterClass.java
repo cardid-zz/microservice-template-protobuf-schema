@@ -39,17 +39,16 @@ public final class StatusOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\023common/status.proto\022\006common\032\021common/ap" +
-      "ps.proto\"\220\001\n\006Status\022\022\n\004code\030\001 \001(\005R\004code\022" +
+      "ps.proto\"\210\001\n\006Status\022\022\n\004code\030\001 \001(\005R\004code\022" +
       "&\n\010app_name\030\002 \001(\0162\013.common.AppR\007appName\022" +
-      "%\n\016correlation_id\030\003 \001(\tR\rcorrelationId\022#" +
-      "\n\005error\030\004 \001(\0132\r.common.ErrorR\005error\"K\n\005E" +
-      "rror\022\030\n\007message\030\001 \001(\tR\007message\022(\n\007detail" +
-      "s\030\002 \003(\0132\016.common.DetailR\007details\"6\n\006Deta" +
-      "il\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007messageBk\n\026info.test.proto.commonP\001ZOgi" +
-      "thub.com/cardid-zz/microservice-template" +
-      "-protobuf-schema/gen/go/common;commonb\006p" +
-      "roto3"
+      "\035\n\ntracing_id\030\003 \001(\tR\ttracingId\022#\n\005error\030" +
+      "\004 \001(\0132\r.common.ErrorR\005error\"K\n\005Error\022\030\n\007" +
+      "message\030\001 \001(\tR\007message\022(\n\007details\030\002 \003(\0132" +
+      "\016.common.DetailR\007details\"6\n\006Detail\022\022\n\004co" +
+      "de\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message" +
+      "Bk\n\026info.test.proto.commonP\001ZOgithub.com" +
+      "/cardid-zz/microservice-template-protobu" +
+      "f-schema/gen/go/common;commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -61,7 +60,7 @@ public final class StatusOuterClass {
     internal_static_common_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_common_Status_descriptor,
-        new java.lang.String[] { "Code", "AppName", "CorrelationId", "Error", });
+        new java.lang.String[] { "Code", "AppName", "TracingId", "Error", });
     internal_static_common_Error_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_common_Error_fieldAccessorTable = new

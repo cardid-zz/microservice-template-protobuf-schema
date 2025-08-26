@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private Status() {
     appName_ = 0;
-    correlationId_ = "";
+    tracingId_ = "";
   }
 
   @java.lang.Override
@@ -90,47 +90,47 @@ private static final long serialVersionUID = 0L;
     return result == null ? info.test.proto.common.App.UNRECOGNIZED : result;
   }
 
-  public static final int CORRELATION_ID_FIELD_NUMBER = 3;
+  public static final int TRACING_ID_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object correlationId_ = "";
+  private volatile java.lang.Object tracingId_ = "";
   /**
    * <pre>
-   * correlation_id - сквозной идентификатор запроса
+   * tracing_id - сквозной идентификатор запроса
    * </pre>
    *
-   * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-   * @return The correlationId.
+   * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+   * @return The tracingId.
    */
   @java.lang.Override
-  public java.lang.String getCorrelationId() {
-    java.lang.Object ref = correlationId_;
+  public java.lang.String getTracingId() {
+    java.lang.Object ref = tracingId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      correlationId_ = s;
+      tracingId_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * correlation_id - сквозной идентификатор запроса
+   * tracing_id - сквозной идентификатор запроса
    * </pre>
    *
-   * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-   * @return The bytes for correlationId.
+   * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+   * @return The bytes for tracingId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCorrelationIdBytes() {
-    java.lang.Object ref = correlationId_;
+      getTracingIdBytes() {
+    java.lang.Object ref = tracingId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      correlationId_ = b;
+      tracingId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -195,8 +195,8 @@ private static final long serialVersionUID = 0L;
     if (appName_ != info.test.proto.common.App.APP_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, appName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(correlationId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, correlationId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tracingId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tracingId_);
     }
     if (error_ != null) {
       output.writeMessage(4, getError());
@@ -218,8 +218,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, appName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(correlationId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, correlationId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tracingId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tracingId_);
     }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -243,8 +243,8 @@ private static final long serialVersionUID = 0L;
     if (getCode()
         != other.getCode()) return false;
     if (appName_ != other.appName_) return false;
-    if (!getCorrelationId()
-        .equals(other.getCorrelationId())) return false;
+    if (!getTracingId()
+        .equals(other.getTracingId())) return false;
     if (hasError() != other.hasError()) return false;
     if (hasError()) {
       if (!getError()
@@ -265,8 +265,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCode();
     hash = (37 * hash) + APP_NAME_FIELD_NUMBER;
     hash = (53 * hash) + appName_;
-    hash = (37 * hash) + CORRELATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getCorrelationId().hashCode();
+    hash = (37 * hash) + TRACING_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getTracingId().hashCode();
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
@@ -406,7 +406,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       code_ = 0;
       appName_ = 0;
-      correlationId_ = "";
+      tracingId_ = "";
       error_ = null;
       if (errorBuilder_ != null) {
         errorBuilder_.dispose();
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
         result.appName_ = appName_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.correlationId_ = correlationId_;
+        result.tracingId_ = tracingId_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.error_ = errorBuilder_ == null
@@ -511,8 +511,8 @@ private static final long serialVersionUID = 0L;
       if (other.appName_ != 0) {
         setAppNameValue(other.getAppNameValue());
       }
-      if (!other.getCorrelationId().isEmpty()) {
-        correlationId_ = other.correlationId_;
+      if (!other.getTracingId().isEmpty()) {
+        tracingId_ = other.tracingId_;
         bitField0_ |= 0x00000004;
         onChanged();
       }
@@ -556,7 +556,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 16
             case 26: {
-              correlationId_ = input.readStringRequireUtf8();
+              tracingId_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000004;
               break;
             } // case 26
@@ -701,22 +701,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object correlationId_ = "";
+    private java.lang.Object tracingId_ = "";
     /**
      * <pre>
-     * correlation_id - сквозной идентификатор запроса
+     * tracing_id - сквозной идентификатор запроса
      * </pre>
      *
-     * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-     * @return The correlationId.
+     * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+     * @return The tracingId.
      */
-    public java.lang.String getCorrelationId() {
-      java.lang.Object ref = correlationId_;
+    public java.lang.String getTracingId() {
+      java.lang.Object ref = tracingId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        correlationId_ = s;
+        tracingId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -724,20 +724,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * correlation_id - сквозной идентификатор запроса
+     * tracing_id - сквозной идентификатор запроса
      * </pre>
      *
-     * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-     * @return The bytes for correlationId.
+     * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+     * @return The bytes for tracingId.
      */
     public com.google.protobuf.ByteString
-        getCorrelationIdBytes() {
-      java.lang.Object ref = correlationId_;
+        getTracingIdBytes() {
+      java.lang.Object ref = tracingId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        correlationId_ = b;
+        tracingId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -745,49 +745,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * correlation_id - сквозной идентификатор запроса
+     * tracing_id - сквозной идентификатор запроса
      * </pre>
      *
-     * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-     * @param value The correlationId to set.
+     * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+     * @param value The tracingId to set.
      * @return This builder for chaining.
      */
-    public Builder setCorrelationId(
+    public Builder setTracingId(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      correlationId_ = value;
+      tracingId_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * correlation_id - сквозной идентификатор запроса
+     * tracing_id - сквозной идентификатор запроса
      * </pre>
      *
-     * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
+     * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearCorrelationId() {
-      correlationId_ = getDefaultInstance().getCorrelationId();
+    public Builder clearTracingId() {
+      tracingId_ = getDefaultInstance().getTracingId();
       bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * correlation_id - сквозной идентификатор запроса
+     * tracing_id - сквозной идентификатор запроса
      * </pre>
      *
-     * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-     * @param value The bytes for correlationId to set.
+     * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+     * @param value The bytes for tracingId to set.
      * @return This builder for chaining.
      */
-    public Builder setCorrelationIdBytes(
+    public Builder setTracingIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      correlationId_ = value;
+      tracingId_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;

@@ -38,23 +38,23 @@ public interface StatusOrBuilder extends
 
   /**
    * <pre>
-   * correlation_id - сквозной идентификатор запроса
+   * tracing_id - сквозной идентификатор запроса
    * </pre>
    *
-   * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-   * @return The correlationId.
+   * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+   * @return The tracingId.
    */
-  java.lang.String getCorrelationId();
+  java.lang.String getTracingId();
   /**
    * <pre>
-   * correlation_id - сквозной идентификатор запроса
+   * tracing_id - сквозной идентификатор запроса
    * </pre>
    *
-   * <code>string correlation_id = 3 [json_name = "correlationId"];</code>
-   * @return The bytes for correlationId.
+   * <code>string tracing_id = 3 [json_name = "tracingId"];</code>
+   * @return The bytes for tracingId.
    */
   com.google.protobuf.ByteString
-      getCorrelationIdBytes();
+      getTracingIdBytes();
 
   /**
    * <pre>
